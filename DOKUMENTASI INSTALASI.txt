@@ -1,0 +1,43 @@
+PROGRES PROJECT UAS PRAKTIKUM SISTEM OPERASI
+
+Masalah: Belum bisa membuka zimbra di browser (localhost) karena missing file
+
+docker compose logs zimbra (sebelum perubahan)
+zimbra  | E: Unable to fetch some archives, maybe run apt-get update or try with --fix-missing?
+zimbra  |  * Starting DNS forwarder and DHCP server dnsmasq
+zimbra  |    ...done.
+zimbra  | /app/control-zimbra.sh: line 6: /etc/init.d/rsyslog: No such file or directory
+zimbra  | /app/control-zimbra.sh: line 7: /etc/init.d/cron: No such file or directory
+zimbra  | /app/control-zimbra.sh: line 8: /etc/init.d/ssh: No such file or directory
+zimbra  | Waiting for signals...
+zimbra  | /app/control-zimbra.sh: line 46: /etc/init.d/ssh: No such file or directory
+zimbra  | /app/control-zimbra.sh: line 47: /etc/init.d/cron: No such file or directory
+zimbra  | /app/control-zimbra.sh: line 48: /etc/init.d/rsyslog: No such file or directory
+zimbra  |  * Starting DNS forwarder and DHCP server dnsmasq
+zimbra  |    ...done.
+zimbra  | /app/control-zimbra.sh: line 6: /etc/init.d/rsyslog: No such file or directory
+zimbra  | /app/control-zimbra.sh: line 7: /etc/init.d/cron: No such file or directory
+zimbra  | /app/control-zimbra.sh: line 8: /etc/init.d/ssh: No such file or directory
+zimbra  | Waiting for signals...
+zimbra  | /app/control-zimbra.sh: line 46: /etc/init.d/ssh: No such file or directory
+zimbra  | /app/control-zimbra.sh: line 47: /etc/init.d/cron: No such file or directory
+zimbra  | /app/control-zimbra.sh: line 48: /etc/init.d/rsyslog: No such file or directory
+zimbra  |  * Starting DNS forwarder and DHCP server dnsmasq
+zimbra  |    ...done.
+zimbra  | /app/control-zimbra.sh: line 6: /etc/init.d/rsyslog: No such file or directory
+zimbra  | /app/control-zimbra.sh: line 7: /etc/init.d/cron: No such file or directory
+zimbra  | /app/control-zimbra.sh: line 8: /etc/init.d/ssh: No such file or directory
+zimbra  | Waiting for signals...
+
+Perubahan:
+- Memindahkan file DockerFile ke dalam /etc
+
+docker compose logs zimbra (setelah perubahan)
+zimbra  |  * Starting DNS forwarder and DHCP server dnsmasq
+zimbra  |    ...done.
+zimbra  | /app/control-zimbra.sh: line 6: /etc/init.d/rsyslog: No such file or directory
+zimbra  | /app/control-zimbra.sh: line 7: /etc/init.d/cron: No such file or directory
+zimbra  | /app/control-zimbra.sh: line 8: /etc/init.d/ssh: No such file or directory
+zimbra  | Waiting for signals...
+
+Kesimpulan: Masalah belum diatasi dengan memindahkan DockerFile ke dalam /etc
