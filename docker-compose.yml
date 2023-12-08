@@ -18,7 +18,7 @@ services:
 
     mysql-mailcow:
       image: mariadb:10.5
-      mem_limit : 2g
+      mem_limit : 4g
       depends_on:
         - unbound-mailcow
       stop_grace_period: 45s
